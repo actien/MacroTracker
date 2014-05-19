@@ -29,7 +29,10 @@ public class StatusFragment extends Fragment {
 		updateFoodList();
 		return view;
 	}
-	
+
+    /** 
+     * Update the calorieField with the latest calorie values from the database.
+     */
 	public void updateCalorieField(){
 		int calories = db.getCaloriesGivenDate(Util.getDate());
 		calorieField.setText(String.valueOf(calories));
@@ -37,6 +40,9 @@ public class StatusFragment extends Fragment {
 		Log.d("debug", "In StatusFragment. Computed calories: " + String.valueOf(calories));
 	}
 	
+    /** 
+     * Update the listView foodList with the latest foods from the database.
+     */
 	public void updateFoodList(){
 		List<Food> foods = db.getFoodsGivenDate(Util.getDate());
 		List<String> foodsString = new ArrayList<String>();
@@ -47,7 +53,10 @@ public class StatusFragment extends Fragment {
 		
 		foodList.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, foodsString));
 	}
-	
+
+    /**
+     * Set the LoggerDB database that will be used to grab the food information.
+     */
 	public void setLoggerDb(LoggerDB db){
 		this.db = db;
 	}

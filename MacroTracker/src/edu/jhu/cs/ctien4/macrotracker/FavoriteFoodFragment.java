@@ -14,6 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * This fragment implements the layout 'favoritefood_fragment'.
+ * It allows the user to quickly re-add any foods which have been entered.
+ *
+ */
+
 public class FavoriteFoodFragment extends Fragment {
 	private static ListView foodListView;
 	private List<Food> foodList;
@@ -21,10 +27,18 @@ public class FavoriteFoodFragment extends Fragment {
 	
 	onDatabaseUpdateListener activityCallback;
 	
+    /**
+     * Interface to allow for the fragment to communicate back to the
+     * activity.
+     */
 	public interface onDatabaseUpdateListener {
 		public void onDatabaseUpdate();
 	}
 	
+    /**
+     * Attaches the parent activity to this fragment, checking to see
+     * that the parent activity implements the interface above.
+     */
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		
@@ -37,6 +51,11 @@ public class FavoriteFoodFragment extends Fragment {
 		}
 	}
 	
+    /**
+     * Inflate the view outlined in the layout file and also sets the 
+     * click listener for the ListView which calls addFood with the index
+     * of the view element that the user clicks on.
+     */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

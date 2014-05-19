@@ -23,6 +23,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+/**
+ * This class is in charge of the logic behind the layout 'deletefood_fragment'.
+ * 
+ * @author Andy
+ *
+ */
 public class DeleteFoodFragment extends Fragment {
 	private static TextView dateInput;
 	private static ListView foodListView;
@@ -36,6 +43,12 @@ public class DeleteFoodFragment extends Fragment {
 		public void onDatabaseUpdate();
 	}
 
+    /**
+     * When the activity loads this fragment, it uses this function to attach
+     * itself to the fragment. The activity must implement the callback interface
+     * above, so that the activityCallback works correctly. An exception will
+     * be thrown if the parent activity does not implement the interface.
+     */
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 
@@ -48,6 +61,12 @@ public class DeleteFoodFragment extends Fragment {
 		}
 	}
 
+    /**
+     * Override the onCreateView in the superclass to inflate the layout.
+     * Listeners are also set for the ListView and DateInput objects. The ListView
+     * listener allows us to extract the index of the item the user clicked on,
+     * which is then used to perform the delete operation on the object.
+     */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -57,6 +76,7 @@ public class DeleteFoodFragment extends Fragment {
 		dateInput = (TextView) view.findViewById(R.id.deleteDateField);
 		dateInput.setText(Util.getDate());
 
+        // Add listener for the date picker
 		dateInput.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -65,6 +85,7 @@ public class DeleteFoodFragment extends Fragment {
 			}
 		});
 
+        // Detect when date picker has returned, so we update the ListView
 		dateInput.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -84,6 +105,8 @@ public class DeleteFoodFragment extends Fragment {
 		});
 
 		foodListView = (ListView) view.findViewById(R.id.deleteFoodList);
+
+        // Add listeners to detect the index of the element that has been clicked.
 		foodListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -146,6 +169,11 @@ public class DeleteFoodFragment extends Fragment {
 
 	}
 
+    /**
+     * Sets the reference for this fragment to the database that is passed in.
+     * This reference needs to be set before database functions are called.
+     *
+     */
 	public void setLoggerDB(LoggerDB db) {
 		this.db = db;
 	}

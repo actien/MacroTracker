@@ -17,6 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+/**
+ * This class implements the logic for setting up a GraphView object to plot the
+ * progress charts.
+ */
 public class GraphFragment extends Fragment {
 	private static LinearLayout layout;
 	private LoggerDB db;
@@ -32,7 +36,13 @@ public class GraphFragment extends Fragment {
 		
 		return view;
 	}
-	
+
+    /**
+     * Set the database reference that the class will use to grab the data
+     * it needs.
+     * @param db
+     *         The LoggerDb database object 
+     */
 	public void setLoggerDb(LoggerDB db){
 		this.db = db;
 	}

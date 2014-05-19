@@ -17,6 +17,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * This class implements the logic for the layout in addfood_fragment.
+ * It also keeps a reference to the database helper object which will
+ * be used to add items to the database.
+ * 
+ * @author Andy Tien
+ *
+ */
+
 public class AddFoodFragment extends Fragment {
 	private LoggerDB db;
 	private boolean dbSet = false;
@@ -57,6 +66,14 @@ public class AddFoodFragment extends Fragment {
 		}
 	}
 
+    /**
+     * This class overrides the onCreateView and uses the inflater
+     * to inflate the addfood_fragment layout. It also adds listeners
+     * to the date_input object and the submit button, to process
+     * the data correctly.
+     *
+     */
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -95,6 +112,12 @@ public class AddFoodFragment extends Fragment {
 		return view;
 	}
 
+    /**
+     * This class is called in the onClickListener for date_input above. 
+     * It creates a new dialog fragment, which the user can use to 
+     * select the correct date.
+     *
+     */
 	public void showDatePickerDialog(View v) {
 		DialogFragment newFragment = new DatePickerFragment();
 		newFragment.show(getFragmentManager(), "datePicker");

@@ -192,6 +192,10 @@ public class MacroTrackerActivity extends ActionBarActivity implements
 		}
 	}
 
+    /**
+     * This is the universal callback function that will be called whenever we have written
+     * to the database. Any child fragments that need to be updated will be updated here.
+     */
 	@Override
 	public void onDatabaseUpdate() {
 		statusFragment.updateCalorieField();
