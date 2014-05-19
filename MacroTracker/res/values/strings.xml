@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MacroTracker</string>
+    <string name="status_section">Status</string>
+    <string name="food_section">Add Food</string>
+    <string name="graph_section">Graph</string>
+    <string name="deletefood_section">Delete Food</string>
+    <string name="favoritefood_section">Favorites</string>
+    <string name="action_settings">Settings</string>
+    
+<!-- Status Screen -->
+    
+    <string name="calorie_label">Today\'s Calories:</string>
+    <string name="calorie_field">0</string>
+    <string name="status_foodlist_label">Today\'s Foods:</string>
+    
+<!-- Add Food Screen -->
+    <string name="name_label">Name:</string>
+    <string name="protein_label">Protein \(g\):</string>
+    <string name="carb_label">Carbohydrates \(g\):</string>
+    <string name="fat_label">Fats \(g\):</string>
+    <string name="calories_label">Calories \(kCal\):</string>
+    <string name="button_label">Submit</string>
+    <string name="date_label">Date:</string>
+    <string name="pick_date">Pick Date</string>
+    
+<!-- Delete Food Screen -->
+    
+    <string name="delete_foodlist_label">Foods:</string>
+    
+<!-- Favorite Food Screen -->
+	<string name="favorite_foodlist_label">Favorite Foods:</string>
+    
+</resources>
